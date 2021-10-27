@@ -20,9 +20,9 @@
 
 ## 리액트 테스팅 라이브러리 (react-testing-library)
 
+https://github.com/testing-library/jest-dom
+
 ### FireEvent API
 
 유저가 발생시키는 액션(이벤트)에 대한 테스트를 해야하는 경우 사용한다.
 https://testing-library.com/docs/dom-testing-library/api-events/
-
-

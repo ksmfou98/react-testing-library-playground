@@ -20,6 +20,11 @@ function Counter() {
           +
         </button>
       </div>
+      <div>
+        <button data-testid="on/off-button" style={{ backgroundColor: "blue" }}>
+          on/off
+        </button>
+      </div>
     </div>
   );
 }

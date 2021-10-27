@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Counter from "./Counter";
 
+// 카운터가 시작할 때 0으로 시작하는지 테스트
 test("the counter starts at 0", () => {
   // Counter 컴포넌트 랜더링
   render(<Counter />);
@@ -10,18 +11,21 @@ test("the counter starts at 0", () => {
   expect(counterElement).toHaveTextContent(0);
 });
 
+// 마이너스 버튼이 -텍스트를 가지고 있는지 테스트
 test("minus button has correct text", () => {
   render(<Counter />);
   const minusButtonElement = screen.getByTestId("minus-button");
   expect(minusButtonElement).toHaveTextContent("-");
 });
 
+// 플러스 버튼이 +텍스트를 가지고 있는지 테스트
 test("plus button has correct text", () => {
   render(<Counter />);
   const plusButtonElement = screen.getByTestId("plus-button");
   expect(plusButtonElement).toHaveTextContent("+");
 });
 
+// 플러스 버튼 클릭스 카운터가 증가하는지 테스트
 test("counter increments when plus button is clicked", () => {
   render(<Counter />);
   const plusButtonElement = screen.getByTestId("plus-button");
@@ -32,6 +36,7 @@ test("counter increments when plus button is clicked", () => {
   expect(counterElement).toHaveTextContent(1);
 });
 
+// 마이너스 버튼 클릭시 카운터가 감소하는지 테스트
 test("counter decrements when minus button is clicked", () => {
   render(<Counter />);
   const minusButtonElement = screen.getByTestId("minus-button");
@@ -39,4 +44,11 @@ test("counter decrements when minus button is clicked", () => {
   // fireEvent 이용한 방식 : fireEvent.click(minusButtonElement);
   const counterElement = screen.getByTestId("counter");
   expect(counterElement).toHaveTextContent(-1);
+});
+
+// on off 버튼이 파란색을 가지고 있는지 테스트
+test("on/off button has blue color", () => {
+  render(<Counter />);
+  const onOffButtonElement = screen.getByTestId("on/off-button");
+  expect(onOffButtonElement).toHaveStyle({ backgroundColor: "blue" });
 });
