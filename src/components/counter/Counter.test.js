@@ -52,3 +52,15 @@ test("on/off button has blue color", () => {
   const onOffButtonElement = screen.getByTestId("on/off-button");
   expect(onOffButtonElement).toHaveStyle({ backgroundColor: "blue" });
 });
+
+// on / off 버튼 클릭시 +, - 버튼 비활성화
+test("plus/minus buttons are disabled when on/off button is clicked", () => {
+  render(<Counter />);
+  const onOffButtonElement = screen.getByTestId("on/off-button");
+  onOffButtonElement.click();
+  // fireEvent 이용한 방식 : fireEvent.click(onOffButtonElement);
+  const plusButtonElement = screen.getByTestId("plus-button");
+  const minusButtonElement = screen.getByTestId("minus-button");
+  expect(plusButtonElement).toBeDisabled();
+  expect(minusButtonElement).toBeDisabled();
+});
