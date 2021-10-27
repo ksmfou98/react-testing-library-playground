@@ -21,3 +21,22 @@ test("plus button has correct text", () => {
   const plusButtonElement = screen.getByTestId("plus-button");
   expect(plusButtonElement).toHaveTextContent("+");
 });
+
+test("counter increments when plus button is clicked", () => {
+  render(<Counter />);
+  const plusButtonElement = screen.getByTestId("plus-button");
+  // 클릭하면 카운터가 1씩 증가
+  plusButtonElement.click();
+  // fireEvent 이용한 방식 : fireEvent.click(plusButtonElement);
+  const counterElement = screen.getByTestId("counter");
+  expect(counterElement).toHaveTextContent(1);
+});
+
+test("counter decrements when minus button is clicked", () => {
+  render(<Counter />);
+  const minusButtonElement = screen.getByTestId("minus-button");
+  minusButtonElement.click();
+  // fireEvent 이용한 방식 : fireEvent.click(minusButtonElement);
+  const counterElement = screen.getByTestId("counter");
+  expect(counterElement).toHaveTextContent(-1);
+});
