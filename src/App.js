@@ -1,10 +1,10 @@
 import "./App.css";
-import Counter from "./components/counter/Counter";
+import OrderPage from "./pages/OrderPage";
 
 function App() {
   return (
-    <div className="App">
-      <Counter />
+    <div style={{ padding: "4rem" }}>
+      <OrderPage />
     </div>
   );
 }
